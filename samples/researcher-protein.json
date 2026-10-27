@@ -1,0 +1,416 @@
+{
+  "topic": "Protein structure prediction (AlphaFold)",
+  "background": "Statistician, postdoc: Bayesian hierarchical models, MCMC, time series, R and some Python.",
+  "ask": "How is the confidence score of a predicted structure calibrated?",
+  "title": "Mapping how proteins fold, from statistics",
+  "timings": [
+    {
+      "what": "map built",
+      "seconds": 10.1
+    },
+    {
+      "what": "3 questions answered",
+      "seconds": 50.9
+    },
+    {
+      "what": "own question added",
+      "seconds": 59.8
+    }
+  ],
+  "nodes": [
+    {
+      "id": "you",
+      "parent": null,
+      "depth": 0,
+      "kind": "you",
+      "state": "lit",
+      "own": false,
+      "d": {
+        "id": "you",
+        "kind": "you",
+        "label": "You · Bayesian statistician",
+        "lit": true
+      }
+    },
+    {
+      "id": "known-1",
+      "parent": "you",
+      "depth": 1,
+      "kind": "known",
+      "state": "lit",
+      "own": false,
+      "d": {
+        "id": "known-1",
+        "kind": "known",
+        "parent": "you",
+        "label": "Bayesian hierarchical models",
+        "lit": true
+      }
+    },
+    {
+      "id": "known-2",
+      "parent": "you",
+      "depth": 1,
+      "kind": "known",
+      "state": "lit",
+      "own": false,
+      "d": {
+        "id": "known-2",
+        "kind": "known",
+        "parent": "you",
+        "label": "MCMC sampling",
+        "lit": true
+      }
+    },
+    {
+      "id": "known-3",
+      "parent": "you",
+      "depth": 1,
+      "kind": "known",
+      "state": "lit",
+      "own": false,
+      "d": {
+        "id": "known-3",
+        "kind": "known",
+        "parent": "you",
+        "label": "Time series analysis",
+        "lit": true
+      }
+    },
+    {
+      "id": "known-4",
+      "parent": "you",
+      "depth": 1,
+      "kind": "known",
+      "state": "lit",
+      "own": false,
+      "d": {
+        "id": "known-4",
+        "kind": "known",
+        "parent": "you",
+        "label": "R and Python programming",
+        "lit": true
+      }
+    },
+    {
+      "id": "n-14e7e654",
+      "parent": "you",
+      "depth": 1,
+      "kind": "core",
+      "state": "lit",
+      "own": false,
+      "d": {
+        "id": "n-14e7e654",
+        "parent": "you",
+        "kind": "core",
+        "label": "What information does a sequence really carry?",
+        "question": "What information about 3D structure is encoded in a protein's amino acid sequence, and what is not?",
+        "why": "Sequence determines the physics that drives folding, but many sequences fold differently in vivo because of chaperones and cellular context. Evolution provides a strong signal: residues in contact tend to mutate together, which is visible in multiple sequence alignments. Start with the Anfinsen principle and the CASP history.",
+        "bridge": "",
+        "task": {
+          "type": "choice",
+          "prompt": "Which best describes the Anfinsen principle?",
+          "options": [
+            "Sequence alone determines the native fold under typical conditions",
+            "Structure determines sequence uniquely",
+            "Folding always requires chaperone proteins"
+          ],
+          "answer": 0,
+          "explain": "Anfinsen showed that for many small proteins, the native fold is determined by the sequence under physiological conditions."
+        }
+      }
+    },
+    {
+      "id": "n-1d0174f3",
+      "parent": "you",
+      "depth": 1,
+      "kind": "bridge",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-1d0174f3",
+        "parent": "you",
+        "kind": "bridge",
+        "label": "Can co-evolution work like a hierarchical model?",
+        "question": "How can correlated mutations across aligned sequences be modeled as a statistical structure, similar to partial pooling across groups?",
+        "why": "Evolutionary couplings are estimated from many related sequences, and models like Potts models or direct coupling analysis treat residue pairs as coupled variables. Your experience with hierarchical shrinkage transfers directly to regularizing these many parameters from limited data. Compare pseudo-likelihood and full Bayesian estimates to see the tradeoffs.",
+        "bridge": "You already know how partial pooling stabilizes estimates when data per group are sparse; sequence families face the same sparsity problem.",
+        "task": {
+          "type": "reflect",
+          "prompt": "Where in your past models did shrinkage most help with sparse or noisy groups?"
+        },
+        "analogy": {
+          "from": "known-1",
+          "label": "≈ partial pooling"
+        }
+      }
+    },
+    {
+      "id": "n-8a6734e1",
+      "parent": "you",
+      "depth": 1,
+      "kind": "frontier",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-8a6734e1",
+        "parent": "you",
+        "kind": "frontier",
+        "label": "How well do predictions capture conformational uncert…",
+        "question": "How can we quantify and calibrate uncertainty in predicted structures, especially for flexible or disordered regions?",
+        "why": "AlphaFold outputs per-residue confidence (pLDDT) and predicted aligned error, but these are not full posterior distributions over conformations. Proteins exist as ensembles, and many predictions miss alternative states. Calibration of these scores against experimental data is an active research area.",
+        "bridge": "Calibrating a model's stated confidence is a problem you already know well from posterior predictive checks.",
+        "task": {
+          "type": "reflect",
+          "prompt": "What's your current guess, or why does this matter to you?"
+        },
+        "analogy": {
+          "from": "known-2",
+          "label": "≈ sampling ensembles"
+        }
+      }
+    },
+    {
+      "id": "n-88206f38",
+      "parent": "n-14e7e654",
+      "depth": 2,
+      "kind": "bridge",
+      "state": "lit",
+      "own": false,
+      "d": {
+        "id": "n-88206f38",
+        "kind": "bridge",
+        "label": "How do multiple sequence alignments reveal coupling?",
+        "question": "How do multiple sequence alignments of homologous proteins expose pairs of positions whose residues co-vary, and why does that signal contact in 3D?",
+        "why": "Co-variation across an alignment is the raw signal AlphaFold's ancestors (direct coupling analysis) exploited: if two positions mutate together, they are likely in spatial contact so the mutation is compensated. The core answer is that correlated substitutions imply coupling, but indirect correlations from shared ancestry must be removed, typically via pseudo-likelihood or global statistical models. You can check this by comparing raw mutual information with corrected scores on a known protein.",
+        "bridge": "Separating direct coupling from indirect correlation is much like separating direct effects from confounding in a hierarchical model.",
+        "task": {
+          "type": "reflect",
+          "prompt": "Where in your own modelling have you had to separate direct dependence from shared-ancestry confounding, and how did you handle it?"
+        },
+        "analogy": {
+          "from": "known-1",
+          "label": "≈ partial correlation"
+        }
+      }
+    },
+    {
+      "id": "n-6a0fbeb8",
+      "parent": "n-14e7e654",
+      "depth": 2,
+      "kind": "frontier",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-6a0fbeb8",
+        "kind": "frontier",
+        "label": "Can sequence alone pin down the folded state?",
+        "question": "Is there a sequence-only signal that determines a single unique 3D structure, or does the sequence instead specify a distribution over conformations that the folded state merely samples?",
+        "why": "This matters because a point prediction can hide real structural ensembles, which is central to interpreting confidence. The current view is that many proteins fold to one dominant state, but disordered regions and fold-switching proteins show the sequence encodes a landscape, not a single answer. Checking this means comparing predicted confidence against experimentally observed alternative conformations.",
+        "bridge": "",
+        "task": {
+          "type": "choice",
+          "prompt": "Why is sequence-only prediction of a single structure considered an open problem for some proteins?",
+          "options": [
+            "Sequences are too short to contain any structural information",
+            "Some proteins fold into multiple conformations or are disordered",
+            "Structure databases contain no entries for those proteins"
+          ],
+          "answer": 1,
+          "explain": "Fold-switching and intrinsically disordered proteins map a sequence to an ensemble of states rather than one structure."
+        }
+      }
+    },
+    {
+      "id": "n-1eb938b5",
+      "parent": "n-14e7e654",
+      "depth": 2,
+      "kind": "bridge",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-1eb938b5",
+        "kind": "bridge",
+        "label": "What does sampling a posterior have to do with foldin…",
+        "question": "How are energy landscape and sampling ideas from MCMC related to the conformational search that folding models approximate?",
+        "why": "Folding is often framed as sampling low-energy states from a Boltzmann distribution, which is structurally identical to sampling a posterior. The key point is that AlphaFold does not run physical MCMC over conformations; it learns a direct mapping from sequence and alignment to coordinates, so its outputs are approximations to the equilibrium ensemble. You can verify this by checking whether sampled structures from a model reproduce known energy-weighted ensembles.",
+        "bridge": "Your MCMC intuition about multimodal targets and mixing maps directly onto why folding landscapes are hard to explore.",
+        "task": {
+          "type": "choice",
+          "prompt": "What does AlphaFold learn compared with physical MCMC over conformations?",
+          "options": [
+            "A direct mapping from sequence and alignments to coordinates",
+            "An exact Boltzmann sampler of all conformations",
+            "A time series of folding trajectories"
+          ],
+          "answer": 0,
+          "explain": "AlphaFold is a learned predictor, not a physically exact sampler of the conformational ensemble."
+        },
+        "analogy": {
+          "from": "known-2",
+          "label": "≈ Boltzmann sampling"
+        }
+      }
+    },
+    {
+      "id": "n-37e681ca",
+      "parent": "n-88206f38",
+      "depth": 3,
+      "kind": "bridge",
+      "state": "lit",
+      "own": false,
+      "d": {
+        "id": "n-37e681ca",
+        "kind": "bridge",
+        "label": "How does a Potts model fit couplings?",
+        "question": "How can a Potts model be fitted to a multiple sequence alignment so that its pairwise couplings separate direct contacts from indirect correlations?",
+        "why": "Direct coupling analysis models the alignment as a maximum-entropy Potts distribution over residues, with fields and pairwise couplings as parameters. Fitting it by pseudolikelihood or regularized maximum likelihood removes the indirect correlations that simple covariance picks up. Check the regularization strength and the effective sequence weighting, since both strongly change which couplings survive.",
+        "bridge": "It is a log-linear exponential-family model fitted to data, much like a regression with pairwise interaction terms whose shrinkage you already tune.",
+        "task": {
+          "type": "reflect",
+          "prompt": "Where in a Potts fit would you put a prior or penalty, and what would it do to weak couplings?"
+        },
+        "analogy": {
+          "from": "known-1",
+          "label": "≈ hierarchical shrinkage"
+        }
+      }
+    },
+    {
+      "id": "n-81b26ccf",
+      "parent": "n-88206f38",
+      "depth": 3,
+      "kind": "frontier",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-81b26ccf",
+        "kind": "frontier",
+        "label": "Can sampling replace the fitted Potts model?",
+        "question": "Can generative models trained on sequences sample new, functional protein sequences whose folds and couplings are faithful to the family's true distribution?",
+        "why": "Models such as variational autoencoders and autoregressive transformers learn the sequence distribution and can generate plausible new sequences. Whether the generated sequences fold and function reliably is still an open question, and it is typically checked with experiments and held-out family statistics.",
+        "bridge": "Generating from a learned distribution to check whether it matches the data is the posterior predictive check you already use.",
+        "task": {
+          "type": "reflect",
+          "prompt": "What summary statistic would you use to judge whether generated sequences match the family?"
+        },
+        "analogy": {
+          "from": "known-2",
+          "label": "≈ posterior predictive draws"
+        }
+      }
+    },
+    {
+      "id": "n-e3752496",
+      "parent": "n-88206f38",
+      "depth": 3,
+      "kind": "frontier",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-e3752496",
+        "kind": "frontier",
+        "label": "How much alignment depth is enough?",
+        "question": "What is the minimum number of effective homologous sequences needed before coupling signals become reliable enough to infer contacts?",
+        "why": "Contact accuracy rises with the effective number of sequences, but the threshold depends on protein family size, diversity, and length. Published benchmarks show the trend, and you can check it on your own family by subsampling the alignment and watching precision change.",
+        "bridge": "Subsampling an alignment to see how estimates stabilize is a power analysis of the kind you run for hierarchical models with few groups.",
+        "task": {
+          "type": "reflect",
+          "prompt": "How would you decide whether a family has enough sequences for its contact predictions to be trusted?"
+        },
+        "analogy": {
+          "from": "known-3",
+          "label": "≈ sample-size curves"
+        }
+      }
+    },
+    {
+      "id": "n-037ef326",
+      "parent": "n-37e681ca",
+      "depth": 4,
+      "kind": "bridge",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-037ef326",
+        "kind": "bridge",
+        "label": "How does pseudolikelihood make Potts fitting tractabl…",
+        "question": "Why does maximizing a pseudolikelihood instead of the full likelihood make fitting a Potts model to an alignment computationally feasible?",
+        "why": "The exact Potts likelihood requires the partition function, which sums over every possible sequence and is intractable for proteins of length 100 or more. Pseudolikelihood replaces it with a product of conditional distributions, each normalized over only 21 amino acid states at one position, which is a tractable approximation. This is the step that makes direct coupling analysis practical on real alignments.",
+        "bridge": "It is like replacing a hard joint posterior with a product of full conditionals, a trick you already use when Gibbs sampling avoids the joint.",
+        "task": {
+          "type": "choice",
+          "prompt": "Why is pseudolikelihood used when fitting Potts models to protein alignments?",
+          "options": [
+            "It avoids computing the intractable partition function",
+            "It removes the need for an alignment entirely",
+            "It guarantees exact recovery of all contacts"
+          ],
+          "answer": 0,
+          "explain": "The partition function sums over all sequences, which is infeasible, so pseudolikelihood uses normalized conditionals instead."
+        },
+        "analogy": {
+          "from": "known-2",
+          "label": "≈ Gibbs full conditionals"
+        }
+      }
+    },
+    {
+      "id": "n-f095bb4c",
+      "parent": "n-37e681ca",
+      "depth": 4,
+      "kind": "frontier",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-f095bb4c",
+        "kind": "frontier",
+        "label": "Can a full Bayesian posterior over couplings be sampl…",
+        "question": "Can we sample a full posterior over Potts couplings, with uncertainty in each contact, rather than reporting a single point estimate?",
+        "why": "Most direct coupling analyses return point estimates from regularized pseudolikelihood, with no principled uncertainty on individual contacts. Sampling the Potts posterior with MCMC is hard because the partition function is intractable and the parameter space is very high-dimensional. Checking this means comparing contact calibration across bootstrap alignments, which is an open area.",
+        "bridge": "",
+        "task": {
+          "type": "reflect",
+          "prompt": "Which would you trust more for a contact prediction: a point estimate or a calibrated posterior interval, and why?"
+        },
+        "analogy": {
+          "from": "known-2",
+          "label": "≈ MCMC over intractable normalizer"
+        }
+      }
+    },
+    {
+      "id": "own-mvit90kr",
+      "parent": "n-8a6734e1",
+      "depth": 2,
+      "kind": "bridge",
+      "state": "open",
+      "own": true,
+      "d": {
+        "kind": "bridge",
+        "label": "How is a predicted structure's confidence calibrated?",
+        "question": "How is the per-residue and global confidence score (pLDDT and PAE in AlphaFold) of a predicted structure calibrated against actual accuracy?",
+        "why": "Confidence scores tell you which parts of a prediction to trust, which matters for any downstream use of the model. AlphaFold2 trained a dedicated head to predict the lDDT-Cα score of each residue, and pLDDT is that predicted score scaled to 0-100; predicted aligned error (PAE) is a separate output estimating positional error between residue pairs. Calibration is checked by comparing these predictions with the lDDT or TM-score computed against experimental structures held out from training, so you should verify it on your own targets rather than assume it holds for every protein family.",
+        "bridge": "It is the same question you ask of any probabilistic model: do the stated uncertainties match observed frequencies, which you would check with reliability diagrams much like posterior predictive checks.",
+        "task": {
+          "type": "choice",
+          "prompt": "What is the main way to check whether AlphaFold's pLDDT scores are well calibrated?",
+          "options": [
+            "Compare predicted pLDDT with observed lDDT against experimental structures",
+            "Check that pLDDT values always sum to 100",
+            "Measure how long the model takes to run"
+          ],
+          "answer": 0,
+          "explain": "Calibration means the predicted confidence should match the accuracy actually observed when compared with experimentally determined structures."
+        },
+        "analogy": {
+          "from": "known-1",
+          "label": "≈ posterior predictive checks"
+        },
+        "id": "own-mvit90kr",
+        "own": true,
+        "asked": "How is the confidence score of a predicted structure calibrated?"
+      }
+    }
+  ]
+}

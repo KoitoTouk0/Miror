@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" data-theme="gold" data-mode="researcher">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Miror · Light-up Map</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="explore.css">
+</head>
+<body>
+  <div class="sky" id="sky" aria-hidden="true"></div>
+  <svg id="graph" role="group" aria-label="Knowledge map"></svg>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">✦</div>
+      <div>
+        <div class="brand-name">Miror</div>
+        <div class="map-title" id="mapTitle"></div>
+      </div>
+    </div>
+    <div class="pill-box" id="progress" aria-live="polite">
+      <span><b id="litCount">0</b> / <span id="totalCount">0</span> <span id="progressWord">lit</span></span>
+      <span class="bar"><i id="bar"></i></span>
+    </div>
+    <div class="pill-box stat" id="strengthStat">✦ <b id="strengthCount">0</b>&nbsp;strengths</div>
+    <div class="actions">
+      <button class="btn" id="exploreBtn" type="button" title="Explore any topic you like">
+        <span class="ico">🧭</span><span class="txt">New topic</span>
+      </button>
+      <button class="btn researcher-only" id="askBtn" type="button" title="Add your own question to the map">
+        <span class="ico">✦</span><span class="txt">Ask</span>
+      </button>
+      <button class="btn kids-only" id="groupBtn" type="button" title="Share gardens with your class, family or friends">
+        <span class="ico">🏡</span><span class="txt">Our land</span>
+      </button>
+      <button class="btn" id="tourBtn" type="button" title="Auto-play the exploration (handy for recording)">
+        <span class="ico" id="tourIco">▶</span><span class="txt" id="tourTxt">Tour</span>
+      </button>
+      <button class="btn icon" id="fitBtn" type="button" title="Fit map to screen" aria-label="Fit map to screen">⤢</button>
+      <button class="btn icon" id="settingsBtn" type="button" title="Settings" aria-label="Settings" aria-expanded="false" aria-controls="settings">⚙</button>
+    </div>
+  </header>
+
+  <div class="settings" id="settings" role="dialog" aria-label="Settings" hidden>
+    <h3>Settings</h3>
+    <div class="set-row">
+      <span class="set-label">Mode</span>
+      <div class="seg" id="modeSeg">
+        <button type="button" data-mode="researcher">🔭 Researcher</button>
+        <button type="button" data-mode="kids">🌼 Kids</button>
+      </div>
+    </div>
+    <div class="set-row kids-only">
+      <span class="set-label">Kids world</span>
+      <div class="seg" id="kidsSeg">
+        <button type="button" data-kids="garden">🌼 Flower garden</button>
+        <button type="button" data-kids="tree">🌳 Growing tree</button>
+      </div>
+    </div>
+    <div class="set-row">
+      <label for="themeSel">Theme</label>
+      <select id="themeSel">
+        <option value="gold">Black &amp; Gold</option>
+        <option value="blue">Blue &amp; White</option>
+      </select>
+    </div>
+    <div class="set-row">
+      <label for="speedSel">Animation speed</label>
+      <select id="speedSel">
+        <option value="normal">Normal</option>
+        <option value="slow">Slow (for recording)</option>
+      </select>
+    </div>
+    <div class="set-row check">
+      <label><input type="checkbox" id="zoomChk"> Zoom in when you click a node</label>
+    </div>
+    <div class="set-row check">
+      <label><input type="checkbox" id="autoFitChk"> Zoom out to show new nodes</label>
+    </div>
+    <div class="set-row researcher-only" id="keyRow">
+      <label for="keyInput">Your own API key <span class="muted">(optional)</span></label>
+      <div class="key-row" id="keyEntry">
+        <input type="password" id="keyInput" placeholder="sk-ant-…" autocomplete="off" spellcheck="false">
+        <button type="button" class="ghost" id="keyUse">Use</button>
+      </div>
+      <div class="key-on" id="keyOn" hidden>
+        <span id="keyText"></span>
+        <button type="button" class="link-btn" id="keyRemove">Remove</button>
+      </div>
+      <label class="key-remember"><input type="checkbox" id="keyRemember"> Remember on this browser</label>
+      <p class="key-note" id="keyNote" aria-live="polite"></p>
+    </div>
+    <button type="button" class="ghost wide" id="resetBtn">↺ Reset this map</button>
+    <button type="button" class="ghost wide" id="sampleBtn" style="margin-top: 8px" hidden>📚 Back to the sample map</button>
+    <p class="muted" id="aiStatus" style="margin: 12px 0 0; font-size: 12.5px"></p>
+  </div>
+
+  <aside class="panel" id="panel" aria-hidden="true" aria-label="Node details">
+    <button type="button" class="close" id="panelClose" aria-label="Close">×</button>
+    <div class="panel-body" id="panelBody"></div>
+  </aside>
+
+  <div class="legend" id="legend">
+    <span><i class="dot" style="--c: var(--k-known)"></i>Already yours</span>
+    <span><i class="dot" style="--c: var(--k-core)"></i>Core question</span>
+    <span><i class="dot" style="--c: var(--k-bridge)"></i>Bridge from your world</span>
+    <span><b class="star-ico">✦</b>Your strength</span>
+    <span><i class="dot" style="--c: var(--k-frontier)"></i>Frontier</span>
+    <span><i class="dash"></i>Analogy to your background</span>
+  </div>
+  <div class="hint" id="hint"></div>
+
+  <button class="can-btn kids-only" id="canBtn" type="button" aria-label="Ask your own question with the watering can">
+    <svg viewBox="-24 -32 62 52" aria-hidden="true" id="canIcon"></svg>
+    <span>Ask!</span>
+  </button>
+  <button class="can-btn fert-btn kids-only" id="fertBtn" type="button" aria-label="Grow a fun fact with the fertilizer">
+    <svg viewBox="-24 -30 48 52" aria-hidden="true" id="fertIcon"></svg>
+    <span>Fun fact!</span>
+  </button>
+
+  <div class="asker fert-ask" id="fertAsk" role="dialog" aria-labelledby="fertTitle" hidden>
+    <button type="button" class="close" id="fertClose" aria-label="Close">×</button>
+    <h3 id="fertTitle">Fun-fact fertilizer ✨</h3>
+    <p class="asker-sub" id="fertSub"></p>
+    <button type="button" class="primary" id="fertGo">✨ Sprinkle it!</button>
+  </div>
+
+  <div class="asker" id="asker" role="dialog" aria-labelledby="askerTitle" hidden>
+    <button type="button" class="close" id="askerClose" aria-label="Close">×</button>
+    <h3 id="askerTitle"></h3>
+    <p class="asker-sub" id="askerSub"></p>
+    <div class="asker-row">
+      <textarea id="askInput" rows="2" aria-label="Your question"></textarea>
+      <button type="button" class="mic" id="micBtn" title="Say your question" aria-label="Say your question" hidden>🎤</button>
+    </div>
+    <div class="chips" id="askChips"></div>
+    <p class="asker-note" id="askNote" aria-live="polite"></p>
+    <button type="button" class="primary" id="askGo" disabled></button>
+  </div>
+  <div class="visit-bar" id="visitBar" hidden>
+    <span>👀 Visiting <b id="visitWho"></b></span>
+    <button type="button" class="land-link" id="visitLand">🏡 Land</button>
+    <button type="button" class="primary" id="visitBack">🌱 Back to mine</button>
+  </div>
+  <div class="land" id="land" hidden>
+    <div class="land-card" id="landCard" role="dialog" aria-labelledby="landTitle"></div>
+  </div>
+  <aside class="intro" id="intro" role="dialog" aria-labelledby="introTitle" hidden>
+    <button type="button" class="close" id="introClose" aria-label="Close">×</button>
+    <div id="introBody"></div>
+  </aside>
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+  <div class="finale" id="finale" hidden></div>
+
+  <svg class="scene" id="scene" role="button"></svg>
+
+  <div class="explore" id="explore" hidden>
+    <div class="explore-card" id="exploreCard" role="dialog" aria-labelledby="exploreTitle"></div>
+    <div class="building" id="building" hidden aria-live="polite">
+      <div class="orbit"><i></i></div>
+      <p id="buildText"></p>
+    </div>
+  </div>
+
+  <script src="vendor/d3.min.js"></script>
+  <script>window.d3 || document.write('<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"><\/script>')</script>
+  <script src="data/researcher.js"></script>
+  <script src="data/kids.js"></script>
+  <script src="graph.js"></script>
+  <script src="scene.js"></script>
+  <script src="ask.js"></script>
+  <script src="intake.js"></script>
+  <script src="group.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

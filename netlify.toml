@@ -1,0 +1,8 @@
+# Netlify deploy: the static site is demo/, the AI endpoint is a function.
+# Set ANTHROPIC_API_KEY in Netlify's site settings (Environment variables), not in this file.
+[build]
+  publish = "demo"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"

@@ -1,0 +1,9 @@
+Group onboarding notes: computational materials (DFT)
+
+Our group predicts the structure and properties of oxide thin films with density functional theory (VASP).
+Typical first project: relax the bulk crystal, check the lattice constant against XRD, then build a slab
+and compute surface energies. Convergence tests (k-points, cutoff energy) must be done before anything else.
+Common mistakes of newcomers: skipping convergence tests, comparing energies from different settings,
+and trusting band gaps from plain GGA (they are usually too small; use hybrid functionals or DFT+U).
+Collaboration: our experimental partners grow the films (PLD, sputtering) and measure XRD, SEM and XPS.
+They want simulations that explain which defects form after annealing and how strain changes the structure.

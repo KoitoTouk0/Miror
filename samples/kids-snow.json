@@ -1,0 +1,300 @@
+{
+  "topic": "snow",
+  "age": 9,
+  "ask": "Why is snow white?",
+  "title": "How does snow form?",
+  "timings": [
+    {
+      "what": "map built",
+      "seconds": 9.1
+    },
+    {
+      "what": "3 questions answered",
+      "seconds": 49.7
+    },
+    {
+      "what": "own question added",
+      "seconds": 111.8
+    }
+  ],
+  "nodes": [
+    {
+      "id": "root",
+      "parent": null,
+      "depth": 0,
+      "kind": "flower",
+      "state": "lit",
+      "own": false,
+      "d": {
+        "id": "root",
+        "label": "How does snow form?",
+        "emoji": "❄️",
+        "question": "How does snow form up in the sky?",
+        "life": "Imagine blowing on a cold window and seeing tiny drops of fog appear. Clouds are like that, but far up high where it is very cold.",
+        "task": {
+          "prompt": "What do snowflakes start as in the clouds?",
+          "options": [
+            "🍕 Tiny pizza crumbs",
+            "🧊 Tiny ice crystals",
+            "🍌 Tiny banana slices"
+          ],
+          "answer": 1,
+          "explain": "Snowflakes start as tiny ice crystals that grow bigger as they bump into more water bits!"
+        }
+      }
+    },
+    {
+      "id": "n-44a68726",
+      "parent": "root",
+      "depth": 1,
+      "kind": "flower",
+      "state": "lit",
+      "own": false,
+      "d": {
+        "id": "n-44a68726",
+        "parent": "root",
+        "label": "Why is each flake different?",
+        "emoji": "🔍",
+        "question": "Why does no two snowflake look exactly the same?",
+        "life": "Imagine building a sandcastle where every grain of sand takes a slightly different path to get there. Snowflakes travel through changing air on their way down.",
+        "task": {
+          "prompt": "What makes snowflakes end up with different shapes?",
+          "options": [
+            "🎈 They are blown up like balloons",
+            "🌦️ They travel through changing air and temperature",
+            "🐟 They copy the shape of fish"
+          ],
+          "answer": 1,
+          "explain": "Each snowflake takes its own path through the air, so its shape changes in its own way!"
+        }
+      }
+    },
+    {
+      "id": "n-cb948912",
+      "parent": "root",
+      "depth": 1,
+      "kind": "flower",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-cb948912",
+        "parent": "root",
+        "label": "How far does snow fall?",
+        "emoji": "🌬️",
+        "question": "How fast does snow fall to the ground?",
+        "life": "Imagine dropping a feather from your bed and watching it float slowly down. Snowflakes drift down in a similar gentle way.",
+        "task": {
+          "prompt": "About how fast does a snowflake fall?",
+          "options": [
+            "🐢 Like a slow walk",
+            "🚀 Faster than a rocket",
+            "🦘 Like a big jump"
+          ],
+          "answer": 0,
+          "explain": "Snowflakes usually fall slowly, about as fast as a slow walk, so they can drift down gently!"
+        }
+      }
+    },
+    {
+      "id": "n-2a43f6b2",
+      "parent": "root",
+      "depth": 1,
+      "kind": "flower",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-2a43f6b2",
+        "parent": "root",
+        "label": "Where does snow come from?",
+        "emoji": "🌍",
+        "question": "Why does snow only fall in cold places?",
+        "life": "Imagine an ice cube melting on a hot day. Snow needs cold air so it does not melt before it lands.",
+        "task": {
+          "prompt": "What keeps snow from melting as it falls?",
+          "options": [
+            "🔥 Hot air around it",
+            "🧊 Cold air around it",
+            "🍦 Sweet ice cream air"
+          ],
+          "answer": 1,
+          "explain": "Cold air keeps snowflakes frozen so they can reach the ground as snow!"
+        }
+      }
+    },
+    {
+      "id": "n-0dd8790e",
+      "parent": "n-44a68726",
+      "depth": 2,
+      "kind": "flower",
+      "state": "lit",
+      "own": false,
+      "d": {
+        "id": "n-0dd8790e",
+        "label": "Why are flakes six-sided?",
+        "emoji": "⭐",
+        "question": "Why are most snowflakes shaped like six-pointed stars?",
+        "life": "Imagine building with blocks that always snap together in groups of six, like the cells of a honeycomb. Snow builds itself in a similar way.",
+        "task": {
+          "prompt": "What shape do most snowflakes have?",
+          "options": [
+            "🍩 Round like a donut",
+            "🔺 Three corners like a triangle",
+            "⭐ Six points like a star"
+          ],
+          "answer": 2,
+          "explain": "Most snowflakes have six points because of how water freezes into tiny ice crystals!"
+        }
+      }
+    },
+    {
+      "id": "n-fd621731",
+      "parent": "n-44a68726",
+      "depth": 2,
+      "kind": "flower",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-fd621731",
+        "label": "Why do flakes fall slowly?",
+        "emoji": "🪶",
+        "question": "How can a snowflake float down so slowly?",
+        "life": "Think of a feather drifting down from a pillow instead of a rock dropped from your hand.",
+        "task": {
+          "prompt": "What helps snow float down slowly?",
+          "options": [
+            "🪨 Being very heavy",
+            "🪶 Being light and spread out",
+            "🚀 Being shot out of a rocket"
+          ],
+          "answer": 1,
+          "explain": "Snowflakes are light and spread out, so the air pushes back and they drift down slowly!"
+        }
+      }
+    },
+    {
+      "id": "n-ee7a3379",
+      "parent": "n-44a68726",
+      "depth": 2,
+      "kind": "flower",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-ee7a3379",
+        "label": "How big is a snowflake?",
+        "emoji": "📏",
+        "question": "How big is a typical snowflake?",
+        "life": "Think of the tip of your pinky finger. Could a snowflake be that small or even smaller?",
+        "task": {
+          "prompt": "About how wide is a typical snowflake?",
+          "options": [
+            "🐘 As big as an elephant",
+            "🏠 As big as a house",
+            "🌟 Just a few millimeters wide"
+          ],
+          "answer": 2,
+          "explain": "Most snowflakes are only a few millimeters wide, which is tiny!"
+        }
+      }
+    },
+    {
+      "id": "n-07683b52",
+      "parent": "n-0dd8790e",
+      "depth": 3,
+      "kind": "flower",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-07683b52",
+        "label": "Who photographed snowflakes?",
+        "emoji": "📷",
+        "question": "Who was the first person to photograph a snowflake?",
+        "life": "Imagine a tiny glitter star landing on your mitten. Could a camera catch it before it melts?",
+        "task": {
+          "prompt": "Who took the first snowflake photos?",
+          "options": [
+            "🐸 A frog named Fred",
+            "🚀 A rocket pilot",
+            "📷 Wilson Bentley, a farmer"
+          ],
+          "answer": 2,
+          "explain": "Wilson Bentley, a farmer from Vermont, took thousands of snowflake photos!"
+        }
+      }
+    },
+    {
+      "id": "n-037f14b8",
+      "parent": "n-0dd8790e",
+      "depth": 3,
+      "kind": "flower",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-037f14b8",
+        "label": "Can snow take other shapes?",
+        "emoji": "❄️",
+        "question": "Can snowflakes take shapes other than six-pointed stars?",
+        "life": "Imagine soft clay that squishes into different shapes. Snow can change shape too, depending on the air.",
+        "task": {
+          "prompt": "Which shape can snow make?",
+          "options": [
+            "🧀 Cheese wheels only",
+            "🪁 Needles and plates",
+            "🍩 Square donuts only"
+          ],
+          "answer": 1,
+          "explain": "Snow can make needles, plates, and columns, depending on how cold and wet the air is!"
+        }
+      }
+    },
+    {
+      "id": "n-72138523",
+      "parent": "n-0dd8790e",
+      "depth": 3,
+      "kind": "flower",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-72138523",
+        "label": "What builds an ice crystal?",
+        "emoji": "🔬",
+        "question": "What tiny pieces build an ice crystal?",
+        "life": "Imagine tiny LEGO bricks snapping together. Each brick is a very small piece of water.",
+        "task": {
+          "prompt": "What are ice crystals built from?",
+          "options": [
+            "🍬 Tiny candy sprinkles",
+            "💧 Tiny water molecules",
+            "🧱 Tiny rocks"
+          ],
+          "answer": 1,
+          "explain": "Water molecules lock together in a neat six-sided pattern as they freeze!"
+        }
+      }
+    },
+    {
+      "id": "n-1f7e2cd3",
+      "parent": "n-07683b52",
+      "depth": 4,
+      "kind": "flower",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-1f7e2cd3",
+        "label": "Why does snow look white?",
+        "emoji": "❄",
+        "question": "Why does snow look white when ice is clear?",
+        "life": "Imagine a pile of broken glass. Each piece is clear, but the whole pile looks bright and white.",
+        "task": {
+          "prompt": "What makes snow look white?",
+          "options": [
+            "🌈 Its ice reflects all colors of light",
+            "🍦 It is made of vanilla ice cream",
+            "🖍 Someone paints it white"
+          ],
+          "answer": 0,
+          "explain": "The tiny ice pieces scatter all the colors of light, and they mix together into white!"
+        }
+      }
+    }
+  ]
+}

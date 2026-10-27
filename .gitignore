@@ -1,0 +1,11 @@
+node_modules/
+.env
+.netlify/
+data/
+Video_clips/
+# Private notes (hand-edited only) and working drafts
+Intact_drive_undecorated.md
+*.docx
+~$*
+.DS_Store
+Miror_video*.mp4

@@ -1,0 +1,302 @@
+{
+  "topic": "rainbow",
+  "age": 7,
+  "ask": "Can you touch a rainbow?",
+  "title": "How does a rainbow appear?",
+  "timings": [
+    {
+      "what": "map built",
+      "seconds": 8.1
+    },
+    {
+      "what": "3 questions answered",
+      "seconds": 48.8
+    },
+    {
+      "what": "own question added",
+      "seconds": 56.6
+    }
+  ],
+  "nodes": [
+    {
+      "id": "root",
+      "parent": null,
+      "depth": 0,
+      "kind": "flower",
+      "state": "lit",
+      "own": false,
+      "d": {
+        "id": "root",
+        "label": "How does a rainbow appear?",
+        "emoji": "🌈",
+        "question": "How does a rainbow appear in the sky?",
+        "life": "Imagine shining a flashlight through a glass of water on a sunny table. Little colors can dance on the wall!",
+        "task": {
+          "prompt": "What does sunlight need to make a rainbow?",
+          "options": [
+            "🍭 Sweet candy drops",
+            "🐟 A swimming fish",
+            "💧 Rain drops and sunshine"
+          ],
+          "answer": 2,
+          "explain": "Sunshine shining through raindrops splits into all the rainbow colors!"
+        }
+      }
+    },
+    {
+      "id": "n-437787c3",
+      "parent": "root",
+      "depth": 1,
+      "kind": "flower",
+      "state": "lit",
+      "own": false,
+      "d": {
+        "id": "n-437787c3",
+        "parent": "root",
+        "label": "What colors are inside?",
+        "emoji": "🎨",
+        "question": "Which colors hide inside a rainbow?",
+        "life": "Think of a box of crayons. Each crayon is a different color, all lined up in a row.",
+        "task": {
+          "prompt": "How many colors does a rainbow usually show?",
+          "options": [
+            "🐸 Two frogs worth",
+            "🌟 About seven colors",
+            "🐘 One big elephant"
+          ],
+          "answer": 1,
+          "explain": "A rainbow usually shows seven colors: red, orange, yellow, green, blue, indigo and violet!"
+        }
+      }
+    },
+    {
+      "id": "n-8e5ba98c",
+      "parent": "root",
+      "depth": 1,
+      "kind": "flower",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-8e5ba98c",
+        "parent": "root",
+        "label": "How big is a rainbow?",
+        "emoji": "📏",
+        "question": "How big can a rainbow get in the sky?",
+        "life": "Imagine a giant hoop you could hold up over your head. Some hoops are small, and some are very, very big.",
+        "task": {
+          "prompt": "What shape is a rainbow really?",
+          "options": [
+            "🍩 A round circle",
+            "🟦 A flat square",
+            "🍌 A wiggly banana"
+          ],
+          "answer": 0,
+          "explain": "A rainbow is really a full circle, but we usually only see the top half from the ground!"
+        }
+      }
+    },
+    {
+      "id": "n-2a67349e",
+      "parent": "root",
+      "depth": 1,
+      "kind": "flower",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-2a67349e",
+        "parent": "root",
+        "label": "Where do rainbows come from?",
+        "emoji": "☀️",
+        "question": "Where does the light for a rainbow come from?",
+        "life": "Imagine standing with your back to the sun while you spray a garden hose. Something bright is always behind you.",
+        "task": {
+          "prompt": "Where is the sun when we can see a rainbow?",
+          "options": [
+            "🌙 Behind us, shining forward",
+            "🐢 Under the grass",
+            "🎈 Inside a balloon"
+          ],
+          "answer": 0,
+          "explain": "The sun shines from behind us, and the rainbow appears in the water drops in front of us!"
+        }
+      }
+    },
+    {
+      "id": "n-8c28c9a0",
+      "parent": "n-437787c3",
+      "depth": 2,
+      "kind": "flower",
+      "state": "lit",
+      "own": false,
+      "d": {
+        "id": "n-8c28c9a0",
+        "label": "Why do colors split apart?",
+        "emoji": "🌈",
+        "question": "Why does sunlight split into many colors in a rainbow?",
+        "life": "Imagine a glass of water on a sunny windowsill throwing bright spots on the wall. The light seems to bend and spread out into a fan of colors.",
+        "task": {
+          "prompt": "What helps sunlight split into colors?",
+          "options": [
+            "🍭 A sticky candy",
+            "🌧️ Tiny raindrops that bend the light",
+            "🧦 A fluffy sock"
+          ],
+          "answer": 1,
+          "explain": "Tiny raindrops bend and spread the sunlight so we see all the colors!"
+        }
+      }
+    },
+    {
+      "id": "n-81c8fca9",
+      "parent": "n-437787c3",
+      "depth": 2,
+      "kind": "flower",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-81c8fca9",
+        "label": "Why is red on top?",
+        "emoji": "🔴",
+        "question": "Why is red always on the top of a rainbow?",
+        "life": "Imagine lining up crayons in a row, and the one you use most sits at the front. Each color bends a little differently when light goes through a raindrop.",
+        "task": {
+          "prompt": "Which color is usually on the top of a rainbow?",
+          "options": [
+            "🔵 Blue",
+            "🔴 Red",
+            "🟢 Green"
+          ],
+          "answer": 1,
+          "explain": "Red is on the outside of the top arc, because red light bends the least!"
+        }
+      }
+    },
+    {
+      "id": "n-3d2b3f1e",
+      "parent": "n-437787c3",
+      "depth": 2,
+      "kind": "flower",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-3d2b3f1e",
+        "label": "How many colors are there?",
+        "emoji": "🎨",
+        "question": "How many colors can we count inside a rainbow?",
+        "life": "Imagine a big box of crayons, with lots of colors to pick from. A rainbow blends its colors together so they flow into each other.",
+        "task": {
+          "prompt": "How many colors do people usually count in a rainbow?",
+          "options": [
+            "🐸 Two frogs",
+            "🌈 Seven colors",
+            "🐝 One hundred bees"
+          ],
+          "answer": 1,
+          "explain": "People often count seven colors: red, orange, yellow, green, blue, indigo, and violet!"
+        }
+      }
+    },
+    {
+      "id": "n-4b33f7be",
+      "parent": "n-8c28c9a0",
+      "depth": 3,
+      "kind": "flower",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-4b33f7be",
+        "label": "Why do raindrops bend light?",
+        "emoji": "💧",
+        "question": "Why does light bend when it goes into a raindrop?",
+        "life": "Imagine running into a pool at a slant. Your legs bend a little and you turn your path. Light does something similar when it enters a raindrop.",
+        "task": {
+          "prompt": "What happens to light when it enters a raindrop?",
+          "options": [
+            "🐸 It turns into jelly",
+            "💧 It bends a little",
+            "🎈 It floats up to the sky"
+          ],
+          "answer": 1,
+          "explain": "Light slows down in water and bends, which helps split it into colors!"
+        }
+      }
+    },
+    {
+      "id": "n-531e7b0e",
+      "parent": "n-8c28c9a0",
+      "depth": 3,
+      "kind": "flower",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-531e7b0e",
+        "label": "Do all colors bend the same?",
+        "emoji": "🌈",
+        "question": "Do all colors of light bend by the same amount?",
+        "life": "Imagine a line of kids running into a pool at a slant. Some kids turn more than others. Light colors can turn by different amounts too.",
+        "task": {
+          "prompt": "Do all colors of light bend the same amount?",
+          "options": [
+            "🍕 Yes, all pizza-colored",
+            "🌈 No, each color bends a little differently",
+            "🐢 Only the slow colors bend"
+          ],
+          "answer": 1,
+          "explain": "Each color bends by a slightly different amount, so the colors spread out into a rainbow!"
+        }
+      }
+    },
+    {
+      "id": "n-dfcbbdfc",
+      "parent": "n-8c28c9a0",
+      "depth": 3,
+      "kind": "flower",
+      "state": "open",
+      "own": false,
+      "d": {
+        "id": "n-dfcbbdfc",
+        "label": "Why does light slow down?",
+        "emoji": "🐢",
+        "question": "Why does light slow down when it goes into water?",
+        "life": "Imagine walking from smooth floor into thick sand. Your steps get slower. Light slows down a bit when it moves into water.",
+        "task": {
+          "prompt": "What is light like when it moves through water?",
+          "options": [
+            "🚀 Faster than before",
+            "🐢 A little slower than before",
+            "🎂 Like a cake that grows bigger"
+          ],
+          "answer": 1,
+          "explain": "Light moves a little slower in water than in air, and that change helps it bend!"
+        }
+      }
+    },
+    {
+      "id": "own-mvit559r",
+      "parent": "root",
+      "depth": 1,
+      "kind": "flower",
+      "state": "open",
+      "own": true,
+      "d": {
+        "label": "Can you touch a rainbow?",
+        "emoji": "🌈",
+        "question": "Can you touch a rainbow?",
+        "life": "Imagine reaching for a rainbow on the hill. Your hand goes right through the colors, like reaching for a sunbeam on the floor.",
+        "task": {
+          "prompt": "What happens when you try to touch a rainbow?",
+          "options": [
+            "🧱 You feel a hard wall",
+            "🍬 Your hand gets sticky candy",
+            "🌬️ Your hand goes right through, because a rainbow is light and not solid"
+          ],
+          "answer": 2,
+          "explain": "A rainbow is made of light, so you can't touch it. Your hand just goes through!"
+        },
+        "id": "own-mvit559r",
+        "own": true,
+        "asked": "Can you touch a rainbow?"
+      }
+    }
+  ]
+}

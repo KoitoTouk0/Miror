@@ -1,0 +1,19 @@
+Miror turns "I wonder…" into a knowledge map that grows: instead of giving long answers, it asks you first, then lights up a path from where you stand. Kids follow their own interests; researchers entering a new field start from the strengths they already have.
+
+[Figure 1: fig1-opening.png. One picture, two journeys: the land is Interest exploration, the sky is Research extension.]
+
+What I built
+One engine, two modes. Kids give only their age, what they love and what they wonder about. Their garden grows as they answer playful "Imagine…" questions, ask their own, collect fun facts tied to their interests, and share gardens with family or classmates through a code. Researchers add their background, skills, target field and papers. They get a personal path (what to focus on, what to skip), principles and applications first, and a gold interlink star showing how their skills connect to the new field.
+
+How
+Claude Haiku writes only structured text: questions, quick checks, paths and bridges from known skills. Every animation and map layout is pre-designed, so each map is reliable and costs under a cent. Built with JavaScript, D3 and Netlify, using Claude Code.
+
+[Figure 2: fig2-three-views.png. A rainbow tree with a fun fact; visiting a cousin's tree in a shared land; the research interlink.]
+
+What I found
+Miror works live on any topic, with a first map in about 10 seconds. For my own move from experimental materials science into DFT simulation, it named my real advantage: calibrating simulations against measured data. Building it taught me to demand true facts rather than analogies, to treat kids' follow-up questions generously, and to keep the AI to words.
+
+Why
+Miror began as a late birthday present for Ming, the cousin who never runs out of questions, and from my PhD, where my groupmates and I forgot the strengths we brought. Answers are everywhere now; a path is scarce. Miror, ergo cogito, ergo sum: I wonder, therefore I think, therefore I am. Let curiosity spark learning again.
+
+Try it at https://explorer-mindflow.netlify.app. Code: https://github.com/KoitoTouk0/Miror
